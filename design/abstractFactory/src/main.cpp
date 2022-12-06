@@ -36,17 +36,17 @@ class UsaBanana:public IBanana{
 class IFactory{
 
 	public:
-	virtual IBanana* createrBanana() = 0;
-	virtual IApple* createrApple() = 0;
+	virtual IBanana* createBanana() = 0;
+	virtual IApple* createApple() = 0;
 };
 class ChinaFactory:public IFactory{
 
 	public:
-    IApple* createrApple()
+    IApple* createApple()
 	{
 		return new ChinaApple();
 	}
-	IBanana* createrBanana()
+	IBanana* createBanana()
 	{
 		return new ChianBanana();
 	}
@@ -54,11 +54,11 @@ class ChinaFactory:public IFactory{
 class UsaFactory:public IFactory{
 
 	public:
-    IApple* createrApple()
+    IApple* createApple()
 	{
 		return new UsaApple();
 	}
-	IBanana* createrBanana()
+	IBanana* createBanana()
 	{
 		return new UsaBanana();
 	}
@@ -70,14 +70,14 @@ int main(int argc, char *argv[])
 	std::cout << "Hello world!" << std::endl;
 
 	IFactory*  fac = new ChinaFactory();
-	IApple* chinaApple =  fac->createrApple();
-	IBanana* chianBanana = fac->createrBanana();
+	IApple* chinaApple =  fac->createApple();
+	IBanana* chianBanana = fac->createBanana();
 	chinaApple->show();
 	chianBanana->show();
 
     fac = new UsaFactory();
-	IApple* usaApple =  fac->createrApple();
-	IBanana* usaBanana = fac->createrBanana();
+	IApple* usaApple =  fac->createApple();
+	IBanana* usaBanana = fac->createBanana();
 	usaApple->show();
 	usaBanana->show();
 

@@ -20,12 +20,12 @@ class banana:public IFruit{
 class IFactory{
 
 	public:
-	virtual IFruit* creater() = 0;
+	virtual IFruit* create() = 0;
 };
 class appleFactory:public IFactory{
 
 	public:
-    IFruit* creater()
+    IFruit* create()
 	{
 		return new apple();
 	}
@@ -33,7 +33,7 @@ class appleFactory:public IFactory{
 class bananaFactory:public IFactory{
 
 	public:
- 	IFruit* creater() 
+ 	IFruit* create() 
 	{
 		return new banana();
 	}
@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
 	std::cout << "Hello world!" << std::endl;
 
 	IFactory*  fac = new appleFactory();
-	IFruit* fruit =  fac->creater();
+	IFruit* fruit =  fac->create();
 	fruit->show();
 
 	fac = new bananaFactory();
-	fruit = fac->creater();
+	fruit = fac->create();
 	fruit->show();
 	system("pause");
 }

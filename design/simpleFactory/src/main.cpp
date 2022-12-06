@@ -22,7 +22,7 @@ class banana:public IFruit{
 class Factory{
 
 	public:
-	IFruit* creater(int type)
+	IFruit* create(int type)
 	{
 		if(type == 0)
 		{
@@ -37,12 +37,10 @@ class Factory{
 int main(int argc, char *argv[])
 {
 	std::cout << "Hello world!" << std::endl;
-
 	Factory*  fac = new Factory();
-	
-	IFruit* fruit =  fac->creater(0);
+	IFruit* fruit =  fac->create(0);
 	fruit->show();
-	fruit = fac->creater(1);
+	fruit = fac->create(1);
 	fruit->show();
 	system("pause");
 }
